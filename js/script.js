@@ -30,11 +30,11 @@ let test = {
             answers: [
                 {
                     text: "Да",
-                    points: 2
+                    points: 5
                 },
                 {
                     text: "Нет",
-                    points: 5
+                    points: 2
                 },
                 {
                     text: "Иногда играю",
@@ -42,7 +42,7 @@ let test = {
                 },
                 {
                     text: "Ненавижу игры",
-                    points: 5
+                    points: 1
                 },
                 {
                     text: "Другое",
@@ -55,11 +55,11 @@ let test = {
             answers: [
                 {
                     text: "Экстраверт",
-                    points: 5
+                    points: 2
                 },
                 {
                     text: "Интроверт",
-                    points: 2
+                    points: 5
                 },
                 {
                     text: "Не знаю",
@@ -80,19 +80,19 @@ let test = {
             answers: [
                 {
                     text: "Громкий концерт",
-                    points: 5
+                    points: 2
                 },
                 {
                     text: "Сидеть дома и пить горячий шоколад",
-                    points: 3
+                    points: 5
                 },
                 {
                     text: "Играть в игры с чаем",
-                    points: 3
+                    points: 5
                 },
                 {
                     text: "Поесть в ресторане",
-                    points: 5
+                    points: 2
                 },
                 {
                     text: "Другое",
@@ -109,19 +109,19 @@ let test = {
                 },
                 {
                     text: "Приставка",
-                    points: 2
+                    points: 5
                 },
                 {
                     text: "Лего",
-                    points: 5
+                    points: 1
                 },
                 {
                     text: "Телефон",
-                    points: 5
+                    points: 3
                 },
                 {
                     text: "Клавиатура",
-                    points: 2
+                    points: 4
                 }
             ]
         },
@@ -134,11 +134,11 @@ let test = {
                 },
                 {
                     text: "Да",
-                    points: 5
+                    points: 2
                 },
                 {
                     text: "Нет",
-                    points: 1
+                    points: 5
                 },
                 {
                     text: "Не сказал бы",
@@ -205,7 +205,7 @@ let test = {
             answers: [
                 {
                     text: "Нет",
-                    points: 1
+                    points: 4
                 },
                 {
                     text: "Делаю это когда только будет возможность",
@@ -213,15 +213,15 @@ let test = {
                 },
                 {
                     text: "Да",
-                    points: 4
+                    points: 2
                 },
                 {
                     text: "Обожаю!",
-                    points: 5
+                    points: 1
                 },
                 {
                     text: "Лучше буду сидеть дома",
-                    points: 1
+                    points: 4
                 }
             ]
         },
@@ -230,7 +230,7 @@ let test = {
             answers: [
                 {
                     text: "Нет",
-                    points: 1
+                    points: 2
                 },
                 {
                     text: "Люблю , но у меня с фантазией не очень",
@@ -238,11 +238,11 @@ let test = {
                 },
                 {
                     text: "Да",
-                    points: 4
+                    points: 3
                 },
                 {
                     text: "Обожаю!",
-                    points: 5
+                    points: 2
                 },
                 {
                     text: "Не понял смысла вопроса",
@@ -321,13 +321,40 @@ function sendAnswer(this1) {
     result_points += curr_quest.answers[numofid - 1].points;
 
     if (question_counter == 10) {
-        alert(`Твой результат : ${result_points}`);
         let quest = document.getElementById("quest");
         quest.style.display = "none";
         let result = document.getElementById("result");
         result.style.display = "block";
         startTimer();
         let name=document.getElementById("ur-name");
+        let image=document.getElementById("res-image");
+        if(result_points>=35&&result_points<40){
+            name.innerText="Влад Гнатюк";
+            image.src="./img/vladg.jpg";
+        }
+        else if(result_points>=50&&result_points<55){
+            name.innerText="Влад Джуга"
+            image.src="./img/vladd.jpg";
+        }
+        else if(result_points>=40&&result_points<45){
+            name.innerText="Андрій"
+            image.src="./img/фтвкшн.jpg";    
+        }
+        else if(result_points>=45&&result_points<50){
+            name.innerText="Артем"
+            image.src="./img/фкеуь.jpg";    
+        }
+        else if(result_points>=35&&result_points<40){
+            name.innerText="Марина"
+            image.src="./img/maryna.jpg";    
+        }
+        else if(result_points<35){
+            name.innerText="Денис"
+        }
+        else{
+            name.innerText="Хз кто"
+            image.src="./img/idk.jfif";    
+        }
     }
     else
         reoladQuestion(test.questions[++question_counter]);
